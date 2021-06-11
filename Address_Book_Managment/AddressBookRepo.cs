@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,14 @@ namespace Address_Book_Managment
                     {
                         while (dr.Read())
                         {
+                            displayModel.Contact_Id = Convert.ToInt32(dr["Contact_Id"]);
+                            displayModel.Contact_Address = dr["Contact_Address"].ToString();
+                            displayModel.Contact_City = dr["Contact_City"].ToString();
+                            displayModel.Contact_State = dr["Contact_State"].ToString();
+                            displayModel.Contact_ZipCode = Convert.ToInt32(dr["Contact_ZipCode"]);
                             
+                            Console.WriteLine(displayModel.Contact_Id + " " + displayModel.Contact_Address + " " + displayModel.Contact_City+" "+displayModel.Contact_State+" "+displayModel.Contact_ZipCode);
+                            Console.WriteLine("\n");
                         }
                     }
                     else

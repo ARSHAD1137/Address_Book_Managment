@@ -11,6 +11,7 @@ namespace Address_Book_Managment
         public int Contact_Id { get; set; }
         public string Contact_Address { get; set; }
         public string Contact_City { get; set; }
+        public string Contact_State { get; set; }
         public int Contact_ZipCode { get; set; }
     }
 }
