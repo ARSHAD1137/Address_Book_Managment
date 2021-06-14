@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Address_Book_Managment;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
 namespace UnitTestProject1
@@ -19,7 +20,7 @@ namespace UnitTestProject1
                 Contact_ZipCode = 414144
             };
 
-            int Update = addressBookRepo.UpdateEmployeeSalary(updateModel);
+            int Update = addressBookRepo.UpdateContactPerson(updateModel);
 
             Assert.AreEqual(updateModel.Contact_Address, Update);
         }

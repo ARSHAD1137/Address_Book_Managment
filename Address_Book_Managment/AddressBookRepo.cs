@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Address_Book_Managment
 {
-    public class Salary
+    public class AddressBookRepo
     {
         private static SqlConnection ConnectionSetup()
         {
@@ -28,11 +29,11 @@ namespace Address_Book_Managment
                     ContactModel displayModel = new ContactModel();
                     SqlCommand command = new SqlCommand("spUpdateContactPerson", ContactConnection);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@id", ContactModel.Contact_Id);
-                    command.Parameters.AddWithValue("@address", ContactModel.Contact_Address);
-                    command.Parameters.AddWithValue("@city", ContactModel.Contact_City);
-                    command.Parameters.AddWithValue("@state", ContactModel.Contact_State);
-                    command.Parameters.AddWithValue("@zipCode", ContactModel.Contact_ZipCode);
+                    command.Parameters.AddWithValue("@id",  displayModel.Contact_Id);
+                    command.Parameters.AddWithValue("@address", displayModel.Contact_Address);
+                    command.Parameters.AddWithValue("@city", displayModel.Contact_City);
+                    command.Parameters.AddWithValue("@state", displayModel.Contact_State);
+                    command.Parameters.AddWithValue("@zipCode", displayModel.Contact_ZipCode);
                     ContactConnection.Open();
                     SqlDataReader dr = command.ExecuteReader();
                     if (dr.HasRows)
